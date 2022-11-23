@@ -1,0 +1,7 @@
+{
+    "server": {
+        "clientes": "http://localhost:3000",
+        "productos": "http://localhost:3000",
+        "ordenes": "http://localhost:3000"
+    }
+}

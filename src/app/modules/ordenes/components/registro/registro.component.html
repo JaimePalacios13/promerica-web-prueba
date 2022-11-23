@@ -1,0 +1,78 @@
+<div class="flex justify-content-center mt-4">
+    <div class="col-6">
+        <p-card>
+            <div class="flex">
+                <div class="flex-auto">
+                    <form [formGroup]="frmOrdenes" (submit)="validarCampos(frmOrdenes.value)">
+                        <div class="grid">
+                            <div class="col-12">
+                                <div class="flex justify-content-end align-items-center">
+                                    <div class="col-1 flex justify-content-start align-items-end">
+                                        <i class="fas fa-chevron-left fa-2x" style="cursor: pointer;" (click)="return()"></i>
+                                    </div>
+                                    <div class="col-11 flex justify-content-end align-items-end">
+                                        <h3 *ngIf="!viewForm">Crear nueva orden</h3>
+                                        <h3 *ngIf="viewForm">Ver datos de la orden</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-2">
+                                <h5>Seleccione un producto</h5>
+                                <p-dropdown 
+                                    [options]="listProductos" 
+                                    placeholder="Seleccione un producto" 
+                                    optionLabel="nombre"
+                                    [style]="{'width':'100%'}"
+                                    [showClear]="true"
+                                    [filter]="true"
+                                    formControlName="idProducto"
+                                    optionValue="id"
+	                            ></p-dropdown>
+                            </div>
+                            <div class="col-6 mt-2">
+                                <h5>Seleccione un cliente</h5>
+                                <p-dropdown 
+                                    [options]="listClientes" 
+                                    placeholder="Seleccione un cliente" 
+                                    optionLabel="nombre"
+                                    [style]="{'width':'100%'}"
+                                    [showClear]="true"
+                                    [filter]="true"
+                                    formControlName="idCliente"
+                                    optionValue="id"
+	                            ></p-dropdown>
+                            </div>
+                            <div class="col-6 mt-2">
+                                <h5>Ingrese cantidad</h5>
+                                <input 
+                                    id="cantidad" 
+                                    [style]="{'width':'100%'}"
+                                    numbersOnly
+                                    formControlName="cantidad" type="text" pInputText
+                                >
+                            </div>
+                            <div class="col-6 mt-2">
+                                <h5>Ingrese Fecha</h5>
+                                <p-calendar 
+                                    formControlName="fecha" 
+                                    [showTime]="true" 
+                                    inputId="time"
+                                    [style]="{'width':'100%'}"
+                                    [ngModel]=""
+                                ></p-calendar>
+                            </div>
+                            <div class="col-12 mt-5" *ngIf="!viewForm">
+                                <button 
+                                    class="btn-blue" type="submit" [style]="{'width':'100%'}"
+                                    [disabled]="frmOrdenes.invalid ? true : false"
+                                    [ngStyle]="{'opacity': frmOrdenes.invalid ? '0.1' : '1', 'cursor': frmOrdenes.invalid ? 'default' : 'pointer'}">
+                                    REGISTRAR
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </p-card>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+.btn-blue{
+    width: 135px;
+    height: 40px;
+    background: #313fb7;
+    border-radius: 5px;
+    border: 0px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 19px;
+    cursor:pointer;
+}
+
+.icon{
+    color: #313fb7;
+    cursor:pointer;
+}

@@ -1,0 +1,39 @@
+<app-loading [show]="spinner"></app-loading>
+<div class="grid">
+    <div class="col-12 flex justify-content-end">
+        <button  class="btn-blue" routerLink="crear-orden">
+            <i class="fa-solid fa-user-plus"></i> Nueva Orden
+        </button>
+    </div>
+    <div class="col">
+        <p-table 
+        *ngIf="bandCarga"
+        [value]="newDataOrders" [tableStyle]="{'min-width': '50rem'}"
+        [paginator]="true" [rows]="15" 
+        currentPageReportTemplate="Mostrando {first} al {last} de {totalRecords} registros"
+    >
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Cod</th>
+                <th>Producto</th>
+                <th>Cliente</th>
+                <th>Cantidad</th>
+                <th>Fecha</th>
+                <!-- <th>Opción</th> -->
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-newDataOrders>
+            <tr>
+                <td>{{newDataOrders.id}}</td>
+                <td>{{newDataOrders.producto}}</td>
+                <td>{{newDataOrders.cliente}}</td>
+                <td>{{newDataOrders.cantidad}}</td>
+                <td>{{newDataOrders.fecha | fechasPipe: 'lll'}}</td>
+                <!-- <td>
+                    <i routerLink="{{newDataOrders.id}}" class="fa-solid fa-eye fa-2x icon"></i>
+                </td> -->
+            </tr>
+        </ng-template>
+    </p-table>
+    </div>
+</div>
